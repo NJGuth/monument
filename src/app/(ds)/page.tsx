@@ -1,9 +1,10 @@
-import MailIcon from "@/components/icons/mail-icon";
+import { Button } from "@/components/ui/button";
 
 export default function IndexPage() {
   return (
     <div>
-      <h1>Indexing DS</h1>
+      <Button> Button </Button>
+      <Button> Button </Button>
     </div>
   );
 }
