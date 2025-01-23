@@ -5,18 +5,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center ring-offset-background justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 scale-100 active:scale-95 ease-out duration-300",
+  "inline-flex items-center ring-offset-background justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 scale-100 active:scale-95 ease-out duration-300",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90",
         destructive:
-          "bg-danger hover:bg-80danger/ active:bg-danger/80 text-destructive-foreground shadow-sm border border-critical-7 hover:border-critical-8 focus-visible:ring-critical-8",
+          "bg-danger hover:bg-80danger/ active:bg-danger/80 text-destructive-foreground shadow-xs border border-critical-7 hover:border-critical-8 focus-visible:ring-critical-8",
         outline:
-          "border border-base-7 bg-background shadow-sm hover:bg-base-3 ",
+          "border border-base-7 bg-background shadow-xs hover:bg-base-3 ",
         secondary:
-          " text-brand-11 active:bg-accent active:bg-brand-5 shadow-sm hover:bg-brand-4 active:shadow-none",
+          " text-brand-11 active:bg-accent active:bg-brand-5 shadow-xs hover:bg-brand-4 active:shadow-none",
         ghost: "hover:bg-brand-4 text-brand-12 hover:text-brand-11",
         link: "text-brand-11 underline-offset-4 hover:underline",
       },

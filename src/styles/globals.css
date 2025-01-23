@@ -1,9 +1,489 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-body {
-  font-family: Geist, Helvetica, sans-serif;
+@plugin 'tailwindcss-animate';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-gray-1: hsl(var(--gray-1));
+  --color-gray-2: hsl(var(--gray-2));
+  --color-gray-3: hsl(var(--gray-3));
+  --color-gray-4: hsl(var(--gray-4));
+  --color-gray-5: hsl(var(--gray-5));
+  --color-gray-6: hsl(var(--gray-6));
+  --color-gray-7: hsl(var(--gray-7));
+  --color-gray-8: hsl(var(--gray-8));
+  --color-gray-9: hsl(var(--gray-9));
+  --color-gray-10: hsl(var(--gray-10));
+  --color-gray-11: hsl(var(--gray-11));
+  --color-gray-12: hsl(var(--gray-12));
+
+  --color-mauve-1: hsl(var(--mauve-1));
+  --color-mauve-2: hsl(var(--mauve-2));
+  --color-mauve-3: hsl(var(--mauve-3));
+  --color-mauve-4: hsl(var(--mauve-4));
+  --color-mauve-5: hsl(var(--mauve-5));
+  --color-mauve-6: hsl(var(--mauve-6));
+  --color-mauve-7: hsl(var(--mauve-7));
+  --color-mauve-8: hsl(var(--mauve-8));
+  --color-mauve-9: hsl(var(--mauve-9));
+  --color-mauve-10: hsl(var(--mauve-10));
+  --color-mauve-11: hsl(var(--mauve-11));
+  --color-mauve-12: hsl(var(--mauve-12));
+
+  --color-slate-1: hsl(var(--slate-1));
+  --color-slate-2: hsl(var(--slate-2));
+  --color-slate-3: hsl(var(--slate-3));
+  --color-slate-4: hsl(var(--slate-4));
+  --color-slate-5: hsl(var(--slate-5));
+  --color-slate-6: hsl(var(--slate-6));
+  --color-slate-7: hsl(var(--slate-7));
+  --color-slate-8: hsl(var(--slate-8));
+  --color-slate-9: hsl(var(--slate-9));
+  --color-slate-10: hsl(var(--slate-10));
+  --color-slate-11: hsl(var(--slate-11));
+  --color-slate-12: hsl(var(--slate-12));
+
+  --color-sage-1: hsl(var(--sage-1));
+  --color-sage-2: hsl(var(--sage-2));
+  --color-sage-3: hsl(var(--sage-3));
+  --color-sage-4: hsl(var(--sage-4));
+  --color-sage-5: hsl(var(--sage-5));
+  --color-sage-6: hsl(var(--sage-6));
+  --color-sage-7: hsl(var(--sage-7));
+  --color-sage-8: hsl(var(--sage-8));
+  --color-sage-9: hsl(var(--sage-9));
+  --color-sage-10: hsl(var(--sage-10));
+  --color-sage-11: hsl(var(--sage-11));
+  --color-sage-12: hsl(var(--sage-12));
+
+  --color-olive-1: hsl(var(--olive-1));
+  --color-olive-2: hsl(var(--olive-2));
+  --color-olive-3: hsl(var(--olive-3));
+  --color-olive-4: hsl(var(--olive-4));
+  --color-olive-5: hsl(var(--olive-5));
+  --color-olive-6: hsl(var(--olive-6));
+  --color-olive-7: hsl(var(--olive-7));
+  --color-olive-8: hsl(var(--olive-8));
+  --color-olive-9: hsl(var(--olive-9));
+  --color-olive-10: hsl(var(--olive-10));
+  --color-olive-11: hsl(var(--olive-11));
+  --color-olive-12: hsl(var(--olive-12));
+
+  --color-sand-1: hsl(var(--sand-1));
+  --color-sand-2: hsl(var(--sand-2));
+  --color-sand-3: hsl(var(--sand-3));
+  --color-sand-4: hsl(var(--sand-4));
+  --color-sand-5: hsl(var(--sand-5));
+  --color-sand-6: hsl(var(--sand-6));
+  --color-sand-7: hsl(var(--sand-7));
+  --color-sand-8: hsl(var(--sand-8));
+  --color-sand-9: hsl(var(--sand-9));
+  --color-sand-10: hsl(var(--sand-10));
+  --color-sand-11: hsl(var(--sand-11));
+  --color-sand-12: hsl(var(--sand-12));
+
+  --color-gold-1: hsl(var(--gold-1));
+  --color-gold-2: hsl(var(--gold-2));
+  --color-gold-3: hsl(var(--gold-3));
+  --color-gold-4: hsl(var(--gold-4));
+  --color-gold-5: hsl(var(--gold-5));
+  --color-gold-6: hsl(var(--gold-6));
+  --color-gold-7: hsl(var(--gold-7));
+  --color-gold-8: hsl(var(--gold-8));
+  --color-gold-9: hsl(var(--gold-9));
+  --color-gold-10: hsl(var(--gold-10));
+  --color-gold-11: hsl(var(--gold-11));
+  --color-gold-12: hsl(var(--gold-12));
+
+  --color-bronze-1: hsl(var(--bronze-1));
+  --color-bronze-2: hsl(var(--bronze-2));
+  --color-bronze-3: hsl(var(--bronze-3));
+  --color-bronze-4: hsl(var(--bronze-4));
+  --color-bronze-5: hsl(var(--bronze-5));
+  --color-bronze-6: hsl(var(--bronze-6));
+  --color-bronze-7: hsl(var(--bronze-7));
+  --color-bronze-8: hsl(var(--bronze-8));
+  --color-bronze-9: hsl(var(--bronze-9));
+  --color-bronze-10: hsl(var(--bronze-10));
+  --color-bronze-11: hsl(var(--bronze-11));
+  --color-bronze-12: hsl(var(--bronze-12));
+
+  --color-brown-1: hsl(var(--brown-1));
+  --color-brown-2: hsl(var(--brown-2));
+  --color-brown-3: hsl(var(--brown-3));
+  --color-brown-4: hsl(var(--brown-4));
+  --color-brown-5: hsl(var(--brown-5));
+  --color-brown-6: hsl(var(--brown-6));
+  --color-brown-7: hsl(var(--brown-7));
+  --color-brown-8: hsl(var(--brown-8));
+  --color-brown-9: hsl(var(--brown-9));
+  --color-brown-10: hsl(var(--brown-10));
+  --color-brown-11: hsl(var(--brown-11));
+  --color-brown-12: hsl(var(--brown-12));
+
+  --color-yellow-1: hsl(var(--yellow-1));
+  --color-yellow-2: hsl(var(--yellow-2));
+  --color-yellow-3: hsl(var(--yellow-3));
+  --color-yellow-4: hsl(var(--yellow-4));
+  --color-yellow-5: hsl(var(--yellow-5));
+  --color-yellow-6: hsl(var(--yellow-6));
+  --color-yellow-7: hsl(var(--yellow-7));
+  --color-yellow-8: hsl(var(--yellow-8));
+  --color-yellow-9: hsl(var(--yellow-9));
+  --color-yellow-10: hsl(var(--yellow-10));
+  --color-yellow-11: hsl(var(--yellow-11));
+  --color-yellow-12: hsl(var(--yellow-12));
+
+  --color-amber-1: hsl(var(--amber-1));
+  --color-amber-2: hsl(var(--amber-2));
+  --color-amber-3: hsl(var(--amber-3));
+  --color-amber-4: hsl(var(--amber-4));
+  --color-amber-5: hsl(var(--amber-5));
+  --color-amber-6: hsl(var(--amber-6));
+  --color-amber-7: hsl(var(--amber-7));
+  --color-amber-8: hsl(var(--amber-8));
+  --color-amber-9: hsl(var(--amber-9));
+  --color-amber-10: hsl(var(--amber-10));
+  --color-amber-11: hsl(var(--amber-11));
+  --color-amber-12: hsl(var(--amber-12));
+
+  --color-orange-1: hsl(var(--orange-1));
+  --color-orange-2: hsl(var(--orange-2));
+  --color-orange-3: hsl(var(--orange-3));
+  --color-orange-4: hsl(var(--orange-4));
+  --color-orange-5: hsl(var(--orange-5));
+  --color-orange-6: hsl(var(--orange-6));
+  --color-orange-7: hsl(var(--orange-7));
+  --color-orange-8: hsl(var(--orange-8));
+  --color-orange-9: hsl(var(--orange-9));
+  --color-orange-10: hsl(var(--orange-10));
+  --color-orange-11: hsl(var(--orange-11));
+  --color-orange-12: hsl(var(--orange-12));
+
+  --color-tomato-1: hsl(var(--tomato-1));
+  --color-tomato-2: hsl(var(--tomato-2));
+  --color-tomato-3: hsl(var(--tomato-3));
+  --color-tomato-4: hsl(var(--tomato-4));
+  --color-tomato-5: hsl(var(--tomato-5));
+  --color-tomato-6: hsl(var(--tomato-6));
+  --color-tomato-7: hsl(var(--tomato-7));
+  --color-tomato-8: hsl(var(--tomato-8));
+  --color-tomato-9: hsl(var(--tomato-9));
+  --color-tomato-10: hsl(var(--tomato-10));
+  --color-tomato-11: hsl(var(--tomato-11));
+  --color-tomato-12: hsl(var(--tomato-12));
+
+  --color-red-1: hsl(var(--red-1));
+  --color-red-2: hsl(var(--red-2));
+  --color-red-3: hsl(var(--red-3));
+  --color-red-4: hsl(var(--red-4));
+  --color-red-5: hsl(var(--red-5));
+  --color-red-6: hsl(var(--red-6));
+  --color-red-7: hsl(var(--red-7));
+  --color-red-8: hsl(var(--red-8));
+  --color-red-9: hsl(var(--red-9));
+  --color-red-10: hsl(var(--red-10));
+  --color-red-11: hsl(var(--red-11));
+  --color-red-12: hsl(var(--red-12));
+
+  --color-ruby-1: hsl(var(--ruby-1));
+  --color-ruby-2: hsl(var(--ruby-2));
+  --color-ruby-3: hsl(var(--ruby-3));
+  --color-ruby-4: hsl(var(--ruby-4));
+  --color-ruby-5: hsl(var(--ruby-5));
+  --color-ruby-6: hsl(var(--ruby-6));
+  --color-ruby-7: hsl(var(--ruby-7));
+  --color-ruby-8: hsl(var(--ruby-8));
+  --color-ruby-9: hsl(var(--ruby-9));
+  --color-ruby-10: hsl(var(--ruby-10));
+  --color-ruby-11: hsl(var(--ruby-11));
+  --color-ruby-12: hsl(var(--ruby-12));
+
+  --color-crimson-1: hsl(var(--crimson-1));
+  --color-crimson-2: hsl(var(--crimson-2));
+  --color-crimson-3: hsl(var(--crimson-3));
+  --color-crimson-4: hsl(var(--crimson-4));
+  --color-crimson-5: hsl(var(--crimson-5));
+  --color-crimson-6: hsl(var(--crimson-6));
+  --color-crimson-7: hsl(var(--crimson-7));
+  --color-crimson-8: hsl(var(--crimson-8));
+  --color-crimson-9: hsl(var(--crimson-9));
+  --color-crimson-10: hsl(var(--crimson-10));
+  --color-crimson-11: hsl(var(--crimson-11));
+  --color-crimson-12: hsl(var(--crimson-12));
+
+  --color-pink-1: hsl(var(--pink-1));
+  --color-pink-2: hsl(var(--pink-2));
+  --color-pink-3: hsl(var(--pink-3));
+  --color-pink-4: hsl(var(--pink-4));
+  --color-pink-5: hsl(var(--pink-5));
+  --color-pink-6: hsl(var(--pink-6));
+  --color-pink-7: hsl(var(--pink-7));
+  --color-pink-8: hsl(var(--pink-8));
+  --color-pink-9: hsl(var(--pink-9));
+  --color-pink-10: hsl(var(--pink-10));
+  --color-pink-11: hsl(var(--pink-11));
+  --color-pink-12: hsl(var(--pink-12));
+
+  --color-plum-1: hsl(var(--plum-1));
+  --color-plum-2: hsl(var(--plum-2));
+  --color-plum-3: hsl(var(--plum-3));
+  --color-plum-4: hsl(var(--plum-4));
+  --color-plum-5: hsl(var(--plum-5));
+  --color-plum-6: hsl(var(--plum-6));
+  --color-plum-7: hsl(var(--plum-7));
+  --color-plum-8: hsl(var(--plum-8));
+  --color-plum-9: hsl(var(--plum-9));
+  --color-plum-10: hsl(var(--plum-10));
+  --color-plum-11: hsl(var(--plum-11));
+  --color-plum-12: hsl(var(--plum-12));
+
+  --color-purple-1: hsl(var(--purple-1));
+  --color-purple-2: hsl(var(--purple-2));
+  --color-purple-3: hsl(var(--purple-3));
+  --color-purple-4: hsl(var(--purple-4));
+  --color-purple-5: hsl(var(--purple-5));
+  --color-purple-6: hsl(var(--purple-6));
+  --color-purple-7: hsl(var(--purple-7));
+  --color-purple-8: hsl(var(--purple-8));
+  --color-purple-9: hsl(var(--purple-9));
+  --color-purple-10: hsl(var(--purple-10));
+  --color-purple-11: hsl(var(--purple-11));
+  --color-purple-12: hsl(var(--purple-12));
+
+  --color-violet-1: hsl(var(--violet-1));
+  --color-violet-2: hsl(var(--violet-2));
+  --color-violet-3: hsl(var(--violet-3));
+  --color-violet-4: hsl(var(--violet-4));
+  --color-violet-5: hsl(var(--violet-5));
+  --color-violet-6: hsl(var(--violet-6));
+  --color-violet-7: hsl(var(--violet-7));
+  --color-violet-8: hsl(var(--violet-8));
+  --color-violet-9: hsl(var(--violet-9));
+  --color-violet-10: hsl(var(--violet-10));
+  --color-violet-11: hsl(var(--violet-11));
+  --color-violet-12: hsl(var(--violet-12));
+
+  --color-iris-1: hsl(var(--iris-1));
+  --color-iris-2: hsl(var(--iris-2));
+  --color-iris-3: hsl(var(--iris-3));
+  --color-iris-4: hsl(var(--iris-4));
+  --color-iris-5: hsl(var(--iris-5));
+  --color-iris-6: hsl(var(--iris-6));
+  --color-iris-7: hsl(var(--iris-7));
+  --color-iris-8: hsl(var(--iris-8));
+  --color-iris-9: hsl(var(--iris-9));
+  --color-iris-10: hsl(var(--iris-10));
+  --color-iris-11: hsl(var(--iris-11));
+  --color-iris-12: hsl(var(--iris-12));
+
+  --color-indigo-1: hsl(var(--indigo-1));
+  --color-indigo-2: hsl(var(--indigo-2));
+  --color-indigo-3: hsl(var(--indigo-3));
+  --color-indigo-4: hsl(var(--indigo-4));
+  --color-indigo-5: hsl(var(--indigo-5));
+  --color-indigo-6: hsl(var(--indigo-6));
+  --color-indigo-7: hsl(var(--indigo-7));
+  --color-indigo-8: hsl(var(--indigo-8));
+  --color-indigo-9: hsl(var(--indigo-9));
+  --color-indigo-10: hsl(var(--indigo-10));
+  --color-indigo-11: hsl(var(--indigo-11));
+  --color-indigo-12: hsl(var(--indigo-12));
+
+  --color-blue-1: hsl(var(--blue-1));
+  --color-blue-2: hsl(var(--blue-2));
+  --color-blue-3: hsl(var(--blue-3));
+  --color-blue-4: hsl(var(--blue-4));
+  --color-blue-5: hsl(var(--blue-5));
+  --color-blue-6: hsl(var(--blue-6));
+  --color-blue-7: hsl(var(--blue-7));
+  --color-blue-8: hsl(var(--blue-8));
+  --color-blue-9: hsl(var(--blue-9));
+  --color-blue-10: hsl(var(--blue-10));
+  --color-blue-11: hsl(var(--blue-11));
+  --color-blue-12: hsl(var(--blue-12));
+
+  --color-cyan-1: hsl(var(--cyan-1));
+  --color-cyan-2: hsl(var(--cyan-2));
+  --color-cyan-3: hsl(var(--cyan-3));
+  --color-cyan-4: hsl(var(--cyan-4));
+  --color-cyan-5: hsl(var(--cyan-5));
+  --color-cyan-6: hsl(var(--cyan-6));
+  --color-cyan-7: hsl(var(--cyan-7));
+  --color-cyan-8: hsl(var(--cyan-8));
+  --color-cyan-9: hsl(var(--cyan-9));
+  --color-cyan-10: hsl(var(--cyan-10));
+  --color-cyan-11: hsl(var(--cyan-11));
+  --color-cyan-12: hsl(var(--cyan-12));
+
+  --color-teal-1: hsl(var(--teal-1));
+  --color-teal-2: hsl(var(--teal-2));
+  --color-teal-3: hsl(var(--teal-3));
+  --color-teal-4: hsl(var(--teal-4));
+  --color-teal-5: hsl(var(--teal-5));
+  --color-teal-6: hsl(var(--teal-6));
+  --color-teal-7: hsl(var(--teal-7));
+  --color-teal-8: hsl(var(--teal-8));
+  --color-teal-9: hsl(var(--teal-9));
+  --color-teal-10: hsl(var(--teal-10));
+  --color-teal-11: hsl(var(--teal-11));
+  --color-teal-12: hsl(var(--teal-12));
+
+  --color-jade-1: hsl(var(--jade-1));
+  --color-jade-2: hsl(var(--jade-2));
+  --color-jade-3: hsl(var(--jade-3));
+  --color-jade-4: hsl(var(--jade-4));
+  --color-jade-5: hsl(var(--jade-5));
+  --color-jade-6: hsl(var(--jade-6));
+  --color-jade-7: hsl(var(--jade-7));
+  --color-jade-8: hsl(var(--jade-8));
+  --color-jade-9: hsl(var(--jade-9));
+  --color-jade-10: hsl(var(--jade-10));
+  --color-jade-11: hsl(var(--jade-11));
+  --color-jade-12: hsl(var(--jade-12));
+
+  --color-green-1: hsl(var(--green-1));
+  --color-green-2: hsl(var(--green-2));
+  --color-green-3: hsl(var(--green-3));
+  --color-green-4: hsl(var(--green-4));
+  --color-green-5: hsl(var(--green-5));
+  --color-green-6: hsl(var(--green-6));
+  --color-green-7: hsl(var(--green-7));
+  --color-green-8: hsl(var(--green-8));
+  --color-green-9: hsl(var(--green-9));
+  --color-green-10: hsl(var(--green-10));
+  --color-green-11: hsl(var(--green-11));
+  --color-green-12: hsl(var(--green-12));
+
+  --color-grass-1: hsl(var(--grass-1));
+  --color-grass-2: hsl(var(--grass-2));
+  --color-grass-3: hsl(var(--grass-3));
+  --color-grass-4: hsl(var(--grass-4));
+  --color-grass-5: hsl(var(--grass-5));
+  --color-grass-6: hsl(var(--grass-6));
+  --color-grass-7: hsl(var(--grass-7));
+  --color-grass-8: hsl(var(--grass-8));
+  --color-grass-9: hsl(var(--grass-9));
+  --color-grass-10: hsl(var(--grass-10));
+  --color-grass-11: hsl(var(--grass-11));
+  --color-grass-12: hsl(var(--grass-12));
+
+  --color-lime-1: hsl(var(--lime-1));
+  --color-lime-2: hsl(var(--lime-2));
+  --color-lime-3: hsl(var(--lime-3));
+  --color-lime-4: hsl(var(--lime-4));
+  --color-lime-5: hsl(var(--lime-5));
+  --color-lime-6: hsl(var(--lime-6));
+  --color-lime-7: hsl(var(--lime-7));
+  --color-lime-8: hsl(var(--lime-8));
+  --color-lime-9: hsl(var(--lime-9));
+  --color-lime-10: hsl(var(--lime-10));
+  --color-lime-11: hsl(var(--lime-11));
+  --color-lime-12: hsl(var(--lime-12));
+
+  --color-mint-1: hsl(var(--mint-1));
+  --color-mint-2: hsl(var(--mint-2));
+  --color-mint-3: hsl(var(--mint-3));
+  --color-mint-4: hsl(var(--mint-4));
+  --color-mint-5: hsl(var(--mint-5));
+  --color-mint-6: hsl(var(--mint-6));
+  --color-mint-7: hsl(var(--mint-7));
+  --color-mint-8: hsl(var(--mint-8));
+  --color-mint-9: hsl(var(--mint-9));
+  --color-mint-10: hsl(var(--mint-10));
+  --color-mint-11: hsl(var(--mint-11));
+  --color-mint-12: hsl(var(--mint-12));
+
+  --color-sky-1: hsl(var(--sky-1));
+  --color-sky-2: hsl(var(--sky-2));
+  --color-sky-3: hsl(var(--sky-3));
+  --color-sky-4: hsl(var(--sky-4));
+  --color-sky-5: hsl(var(--sky-5));
+  --color-sky-6: hsl(var(--sky-6));
+  --color-sky-7: hsl(var(--sky-7));
+  --color-sky-8: hsl(var(--sky-8));
+  --color-sky-9: hsl(var(--sky-9));
+  --color-sky-10: hsl(var(--sky-10));
+  --color-sky-11: hsl(var(--sky-11));
+  --color-sky-12: hsl(var(--sky-12));
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --color-caret: hsl(var(--caret));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: Geist, Helvetica, sans-serif;
+  }
 }
 
 @layer base {
