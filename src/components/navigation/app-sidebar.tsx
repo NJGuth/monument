@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sidebar,
   SidebarContent,
@@ -10,23 +12,26 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
+import { usePathname } from "next/navigation";
 
 import { HomeIcon, NotificationsIcon } from "@/components/icons";
 
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: HomeIcon,
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/test",
     icon: NotificationsIcon,
   },
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
+
   return (
     <Sidebar>
       <SidebarHeader />
@@ -39,8 +44,9 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
                     asChild
-                    variant="outline"
+                    variant="default"
                     className="h-10 text-lg"
+                    isActive={pathname === item.url}
                     tooltip={item.title}
                   >
                     <a href={item.url}>
